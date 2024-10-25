@@ -24,6 +24,24 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
 }
 ```
+i.e
+
+provider "aws" {
+
+   region= "ap-south-1"
+}
+
+
+resource "aws_instance" "example" {
+  count = var.create_instance ? 2 : 3
+
+  ami           = "ami-0dee22c13ea7a9a67"
+  instance_type = "t2.micro"
+}
+variable "create_instance" {
+default= true
+type= bool
+}
 
 In this example, the `count` attribute of the `aws_instance` resource uses a conditional expression. If the `create_instance` variable is `true`, it creates one EC2 instance. If `create_instance` is `false`, it creates zero instances, effectively skipping resource creation.
 
