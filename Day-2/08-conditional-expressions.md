@@ -23,7 +23,7 @@ resource "aws_instance" "example" {
   ami           = "ami-XXXXXXXXXXXXXXXXX"
   instance_type = "t2.micro"
 }
-```
+
 i.e
 
 provider "aws" {
@@ -42,7 +42,7 @@ variable "create_instance" {
 default= true
 type= bool
 }
-
+```
 In this example, the `count` attribute of the `aws_instance` resource uses a conditional expression. If the `create_instance` variable is `true`, it creates one EC2 instance. If `create_instance` is `false`, it creates zero instances, effectively skipping resource creation.
 
 # Conditional Variable Assignment Example
